@@ -2,8 +2,21 @@
 <style>
 #filters{
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping to next line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap;
+    scrollbar-width: thin; 
+    scrollbar-color: #ccc transparent;
+    align-items: center;
+}
+/* For Webkit browsers (Chrome, Safari) */
+#filters::-webkit-scrollbar {
+    height: 6px; /* Adjust scrollbar height */
+}
+
+#filters::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar thumb color */
+    border-radius: 10px;
 }
 #filter{
   text-align: center;margin-right: 2rem;
@@ -27,6 +40,12 @@ opacity: 1;cursor: pointer;
   display: flex;
   align-items: center;
 }
+@media (max-width:600px){
+  .tax-toggle{
+    display: none;
+  }
+}
+
 </style>
 
 <div id="filters">
