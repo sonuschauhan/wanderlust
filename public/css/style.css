@@ -103,6 +103,7 @@ body{
 }
 .btns{
     display: flex;
+    gap: 1rem;
 }
 .show-card{
     padding-left: 0;

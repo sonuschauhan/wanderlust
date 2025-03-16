@@ -73,3 +73,22 @@ module.exports.destroyListing = async (req, res) => {
 
 }
 
+module.exports.searchListings = async (req, res) => {
+    const { q } = req.query;
+    const filteredListings = await Listing.find({ 
+      $or: [
+        { title: new RegExp(q, 'i') },
+        { location: new RegExp(q, 'i') },
+        { country: new RegExp(q, 'i') }
+      ]
+    });
+    res.render("listings/index.ejs", { allListings: filteredListings });
+  };
+
+
+  module.exports.filterListings = async (req, res) => {
+    const { category } = req.params;
+    const filteredListings = await Listing.find({ category });
+    res.render("listings/index.ejs", { allListings: filteredListings ,activeFilter: category});
+     
+};

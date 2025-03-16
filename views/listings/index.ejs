@@ -4,6 +4,7 @@
   display: flex;
     flex-wrap: nowrap; /* Prevent wrapping to next line */
     overflow-x: auto; /* Enable horizontal scrolling */
+    will-change: transform;
     white-space: nowrap;
     scrollbar-width: thin; 
     scrollbar-color: #ccc transparent;
@@ -31,6 +32,11 @@ opacity: 1;cursor: pointer;
 .tax-info{
   display: none;
 }
+.filters-tax-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .tax-toggle{
   border: 1px solid black;
   border-radius: 1rem;
@@ -39,82 +45,122 @@ opacity: 1;cursor: pointer;
   margin-left: 0rem;
   display: flex;
   align-items: center;
+  min-width: 255px;
+  
 }
+.active-filter {
+    border-bottom: 3px solid #fe424d;
+    opacity: 1 !important;
+}
+
 @media (max-width:600px){
-  .tax-toggle{
-    display: none;
-  }
+  
+  .filters-tax-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .tax-toggle {
+      width: 100%;
+      margin-top: 1rem;
+      /* order: 1; */
+      justify-content:space-around;
+      
+    }
 }
 
 </style>
-
+<div class="filters-tax-container">
 <div id="filters">
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Trending')" 
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Trending') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-fire"></i>
     </div>
     <p>Trending</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Rooms')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Rooms') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-bed"></i>
     </div>
     <p>Rooms</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Iconic Cities')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Iconic Cities') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-mountain-city"></i>
     </div>
     <p>Iconic Cities</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Mountains')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Mountains') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-mountain"></i>
     </div>
     <p>Mountains</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Castles')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Castles') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-chess-rook"></i>
     </div>
-    <p>Castels</p>
+    <p>Castles</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Amazing Pools')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Amazing Pools') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-person-swimming"></i>
     </div>
     <p>Amazing Pools</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Camping')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Camping') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-campground"></i>
     </div>
     <p>Camping</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Farms')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Farms') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-cow"></i>
     </div>
     <p>Farms</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Arctic')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Arctic') { %>active-filter<% } %>"
+  >
     <div>
       <i class="fa-solid fa-snowflake"></i>
     </div>
     <p>Arctic</p>
   </div>
-  <div id="filter">
+  <div id="filter" onclick="filterListings('Domes')"
+  class="<% if(typeof activeFilter !== 'undefined' && activeFilter === 'Domes') { %>active-filter<% } %>"
+  
+  >
     <div>
       <i class="fa-solid fa-igloo"></i>
     </div>
     <p>Domes</p>
   </div>
-  <div class="tax-toggle">
-    <div class="form-check-reverse form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-      <label class="form-check-label" for="flexSwitchCheckDefault">Display total after Taxes</label>
-    </div>
+  
+</div>
+<div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+    <label class="form-check-label" for="flexSwitchCheckDefault">Display total after Taxes</label>
   </div>
+</div>
 </div>
     <!-- <h3>All Listings</h3> -->
     <!-- <form action="/listings/new" method="get">
@@ -150,8 +196,12 @@ opacity: 1;cursor: pointer;
           }
          }
       })
+
+      function filterListings(category) {
+          window.location.href = `/listings/filter/${encodeURIComponent(category)}`;
+      }
     </script>
     
-
+    
 
 
