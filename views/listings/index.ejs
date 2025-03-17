@@ -1,75 +1,4 @@
 <% layout('/layouts/boilerplate') -%>
-<style>
-#filters{
-  display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping to next line */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    will-change: transform;
-    white-space: nowrap;
-    scrollbar-width: thin; 
-    scrollbar-color: #ccc transparent;
-    align-items: center;
-}
-/* For Webkit browsers (Chrome, Safari) */
-#filters::-webkit-scrollbar {
-    height: 6px; /* Adjust scrollbar height */
-}
-
-#filters::-webkit-scrollbar-thumb {
-    background: #888; /* Scrollbar thumb color */
-    border-radius: 10px;
-}
-#filter{
-  text-align: center;margin-right: 2rem;
-  margin-top: 1.5rem;opacity: 0.8;
-}
-#filter:hover{
-opacity: 1;cursor: pointer;
-}
-#filter p{
-  font-size: 0.8rem;
-}
-.tax-info{
-  display: none;
-}
-.filters-tax-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.tax-toggle{
-  border: 1px solid black;
-  border-radius: 1rem;
-  height: 3rem;
-  padding:1rem;
-  margin-left: 0rem;
-  display: flex;
-  align-items: center;
-  min-width: 255px;
-  
-}
-.active-filter {
-    border-bottom: 3px solid #fe424d;
-    opacity: 1 !important;
-}
-
-@media (max-width:600px){
-  
-  .filters-tax-container {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    
-    .tax-toggle {
-      width: 100%;
-      margin-top: 1rem;
-      /* order: 1; */
-      justify-content:space-around;
-      
-    }
-}
-
-</style>
 <div class="filters-tax-container">
 <div id="filters">
   <div id="filter" onclick="filterListings('Trending')" 
@@ -166,7 +95,7 @@ opacity: 1;cursor: pointer;
     <!-- <form action="/listings/new" method="get">
         <button>Create New</button>
     </form> -->
-    <div class="row row-cols-1  row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 mt-3">
         <%for(listing of allListings){%>
             <a href="/listings/<%=listing._id%>" class="listing-link">
             <div class="card col listing-card" >
