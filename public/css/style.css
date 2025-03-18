@@ -52,7 +52,7 @@ body{
 .f-info-links a:hover{
     text-decoration: underline;
 }
-/* index.js */
+index.js
 /* //Card */
 .listing-card{
     border: none !important;
@@ -63,7 +63,6 @@ body{
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
-    height: 15rem !important;
 }
 
 .card-body{
@@ -84,83 +83,6 @@ body{
     opacity: 0.2;
     background-color: white;
 }
-
-#filters{
-    display: flex;
-      flex-wrap: nowrap; /* Prevent wrapping to next line */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      will-change: transform;
-      white-space: nowrap;
-      scrollbar-width: thin; 
-      scrollbar-color: #ccc transparent;
-      align-items: center;
-  }
-  /* For Webkit browsers (Chrome, Safari) */
-  #filters::-webkit-scrollbar {
-      height: 6px; /* Adjust scrollbar height */
-  }
-  
-  #filters::-webkit-scrollbar-thumb {
-      background: #888; /* Scrollbar thumb color */
-      border-radius: 10px;
-  }
-  #filter{
-    text-align: center;margin-right: 2rem;
-    margin-top: 1.5rem;opacity: 0.8;
-  }
-  #filter:hover{
-  opacity: 1;cursor: pointer;
-  }
-  #filter p{
-    font-size: 0.8rem;
-  }
-  .tax-info{
-    display: none;
-  }
-  .filters-tax-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .tax-toggle{
-    border: 1px solid black;
-    border-radius: 1rem;
-    height: 3rem;
-    padding:1rem;
-    margin-left: 0rem;
-    display: flex;
-    align-items: center;
-    min-width: 255px;
-    
-  }
-  .active-filter {
-      border-bottom: 3px solid #fe424d;
-      opacity: 1 !important;
-  }
-  
-  @media (max-width:600px){
-
-    .row{
-        margin: 0.3rem !important;
-    }
-    
-    .filters-tax-container {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      
-      .tax-toggle {
-        width: 100%;
-        margin-top: 1rem;
-        /* order: 1; */
-        justify-content:space-around;
-        
-      }
-
-      .card-img-top{
-        height: 20rem !important;
-    }
-  }
 
 
 /* New Page */
